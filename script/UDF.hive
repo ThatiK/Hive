@@ -1,0 +1,7 @@
+ADD JAR /home/karthik/workspace/HiveUDF-0.0.1-SNAPSHOT.jar;
+CREATE TEMPORARY FUNCTION CONCATEMP AS 'com.cloudwick.hive.HiveUDF.Concat';
+
+describe function concatemp;
+describe function extended concatemp;
+use cloudwick;
+select empid,empname,concatemp(empid,empname) from empdept;
